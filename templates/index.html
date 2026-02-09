@@ -1,1 +1,197 @@
+{% extends "base.html" %}
 
+{% block content %}
+<header class="hero">
+    <div class="header-content">
+        <img src="{{ url_for('static', filename='images/tadaog.png') }}"
+             alt="GiveawayBot Logo"
+             class="logo-image">
+
+        <h1>GiveawayBot</h1>
+        <p class="hero-subtitle">
+            Hold giveaways on your <span class="highlight">Discord</span> server quickly and easily!
+        </p>
+
+        <div class="stats-badges">
+            <img src="https://img.shields.io/badge/servers-{{ bot_stats.guilds }}-199FB1?style=for-the-badge">
+            <img src="https://img.shields.io/badge/status-{{ bot_stats.status }}-199FB1?style=for-the-badge">
+        </div>
+
+        <!-- ADD TO DISCORD BUTTON -->
+        <a href="{{ url_for('invite') }}" class="discord-btn">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg"
+                 alt="Discord"
+                 class="discord-icon">
+            Add to Discord
+        </a>
+    </div>
+</header>
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Why Choose GiveawayBot?</h2>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h3>Easy Setup</h3>
+                    <p>Start a giveaway in seconds with simple slash commands</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h3>Reliable</h3>
+                    <p>Built with modern technology for 24/7 uptime</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <h3>User Friendly</h3>
+                    <p>Interactive forms and intuitive commands</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="commands">
+    <div class="container">
+        <h2 class="section-title">Command Reference</h2>
+
+        <div class="command-group">
+            <h4>General Commands</h4>
+            <p><code>/ghelp</code> – Show all commands</p>
+            <p><code>/gabout</code> – Bot info</p>
+            <p><code>/ginvite</code> – Bot invite link</p>
+        </div>
+
+        <div class="command-group">
+            <h4>Giveaway Creation</h4>
+            <p><code>/gcreate</code> – Interactive giveaway form</p>
+            <p><code>/gstart &lt;time&gt; &lt;winners&gt; &lt;prize&gt;</code></p>
+            <small>Time: s / m / h / d</small>
+        </div>
+
+        <div class="command-group">
+            <h4>Giveaway Management</h4>
+            <p><code>/gend &lt;id&gt;</code> – End giveaway</p>
+            <p><code>/gdelete &lt;id&gt;</code> – Delete giveaway</p>
+            <p><code>/glist</code> – List giveaways</p>
+            <p><code>/greroll &lt;id&gt;</code> – Reroll winners</p>
+        </div>
+    </div>
+</section>
+
+<section class="get-started">
+    <div class="container text-center">
+        <h2>Ready to engage your community?</h2>
+        <p>Add GiveawayBot to your Discord server today!</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* HERO */
+.hero {
+    background: #199FB1;
+    padding: 90px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.logo-image {
+    width: 140px;
+    margin: 30px auto;
+    display: block;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: #fff700;
+    font-weight: bold;
+}
+
+.stats-badges img {
+    margin: 6px;
+}
+
+/* ADD TO DISCORD BUTTON (NEW COLOR) */
+.discord-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 34px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #22A2AF, #1C8F9B);
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba(34, 162, 175, 0.45);
+    transition: all 0.3s ease;
+    margin-top: 30px;
+}
+
+.discord-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 18px 40px rgba(34, 162, 175, 0.65);
+    background: linear-gradient(135deg, #1C8F9B, #167C86);
+}
+
+.discord-btn:active {
+    transform: scale(0.96);
+}
+
+.discord-icon {
+    width: 26px;
+    height: 26px;
+    filter: brightness(0) invert(1);
+}
+
+/* FEATURES */
+.features {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.feature-card {
+    background: #f4fefe;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    height: 100%;
+}
+
+/* COMMANDS */
+.commands {
+    background: #f1f9fb;
+    padding: 80px 0;
+}
+
+.command-group {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* CTA */
+.get-started {
+    background: #199FB1;
+    color: white;
+    padding: 70px 0;
+}
+</style>
+{% endblock %}
