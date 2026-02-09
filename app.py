@@ -1,6 +1,10 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect
 
-app = Flask(__name__, template_folder="../templates", static_folder="../static")
+app = Flask(
+    __name__,
+    template_folder="./templates",
+    static_folder="./static"
+)
 
 @app.route("/")
 def home():
@@ -19,6 +23,5 @@ def invite():
         "&scope=bot%20applications.commands"
     )
 
-# Required for Vercel
-def handler(request):
-    return app(request.environ, start_response=lambda *args: None)
+# 🚨 DO NOT ADD handler()
+# Vercel automatically detects `app`
